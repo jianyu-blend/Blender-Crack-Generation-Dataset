@@ -3,25 +3,23 @@
 Rendered masonry scenes with automatically generated instance annotations for brick, broken
 brick and crack, produced by the Blender Crack Generation (BCG) framework.
 
-The images are distributed through a data repository rather than through git, because git keeps
-every version of a binary file in its history and GitHub refuses files above 100 MB. This
-repository holds the description, the checksums and a verification script.
-
 | | |
 |---|---|
-| Download | `<dataset DOI — fill in on release>` |
-| Size | `<fill in>` |
-| Images | `<fill in>` |
+| Images | 4,000 |
+| Size | approximately 190 MiB |
+| Resolution | 128 x 128 to 640 x 640 |
+| Annotation | YOLO segmentation polygons |
 | Licence | `<fill in, for example CC BY 4.0>` |
-| Generator code | `<code repository URL — fill in on release>` |
+| Generator code | [Blender Crack Generation Code](https://github.com/jianyu-blend/Blender-Crack-Generation-Code) |
+| Dataset repository | [Blender Crack Generation Dataset](https://github.com/jianyu-blend/Blender-Crack-Generation-Dataset) |
+| Archived release | `<dataset DOI — fill in, optional>` |
 
 ## Contents
 
 ```
-BCG/
-  images/       <base>_<n>_P.png     640 x 640 RGB render
-  labels/       <base>_<n>_P.txt     YOLO polygons, one instance per line
-  data.yaml     class names, in the order below
+train/images/       <base>_<n>_P.jpg     RGB render
+train/labels/       <base>_<n>_P.txt     YOLO polygons, one instance per line
+data.yaml           class names, in the order below
 ```
 
 | Class id | Name | Meaning |
@@ -32,6 +30,10 @@ BCG/
 
 Mortar and background carry no annotation. Each label line is
 `class_id x1 y1 x2 y2 ... xn yn`, with coordinates normalised to [0, 1].
+
+The rendered label masks used to produce these polygons are not part of the release; the
+polygons are the annotation. The converter that turns a label render into polygons is
+`masks_to_yolo_polygons.py` in the code repository.
 
 ## Filenames
 
@@ -59,26 +61,32 @@ geometry subtracted from the brick and mortar meshes. Wall geometry, material ap
 lighting, camera pose and crack morphology are randomised per scene. The RGB pass and the label
 pass share the scene state and the camera, so the two outputs are aligned by construction.
 
-The generator, and the code that produced every number in the paper, is in the code repository
-above.
+The generator is in the code repository above.
 
-## Verifying a download
+## Generating your own data
 
-    python verify_dataset.py /path/to/BCG
+Users are encouraged to generate their own synthetic images with the BCG pipeline, especially
+when additional samples or different scene distributions are required. The complete generation
+code and step-by-step instructions are available in the
+[Blender Crack Generation Code repository](https://github.com/jianyu-blend/Blender-Crack-Generation-Code).
+
+## Checking the data
+
+    python verify_dataset.py train
 
 It checks that every image has a label and the reverse, that the class ids and the polygon
 coordinates are in range, and prints the instance counts per class and the distribution over
 generation conditions. It needs only `Pillow`; add `--checksums` to compare against
-`checksums.sha256`.
+`checksums.sha256` if one is published with the release.
 
 ## Using it
 
 The dataset trains any YOLO-format instance-segmentation model directly. For the acquisition
-loop in the code repository, point the configuration at the extracted directory:
+loop in the code repository, point the configuration at this directory:
 
 ```yaml
 downstream:
-  synthetic_pool: /path/to/BCG
+  synthetic_pool: /path/to/bcg-dataset
 ```
 
 ## Real images
@@ -93,4 +101,4 @@ come from MCrack1300 and are not redistributed here.
 
 ## Citation
 
-`<fill in on release: the paper describing BCG, and the dataset DOI>`
+`<fill in on release: the paper describing BCG, and the dataset DOI if one is minted>`

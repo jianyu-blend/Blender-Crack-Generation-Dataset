@@ -1,0 +1,22 @@
+# The dataset images and labels are tracked in this repository.
+# Only build artefacts and redundant archives are excluded.
+
+# Archives: publish the release as a GitHub release asset, not as a tracked file.
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# Rendered label masks are not part of this release; the YOLO polygons are.
+*_M.png
+*_D.png
+*.exr
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db

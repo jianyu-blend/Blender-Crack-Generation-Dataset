@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['brick', 'broken_brick', 'crack']
+
+roboflow:
+  workspace: synthetic-dataset-ftflp
+  project: crack_synthetic_20072026
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/synthetic-dataset-ftflp/crack_synthetic_20072026/dataset/1
