@@ -98,7 +98,3 @@ come from MCrack1300 and are not redistributed here.
 > models for the automation of structural damage detection. *Advanced Engineering Informatics*
 > 62, 102826. [doi:10.1016/j.aei.2024.102826](https://doi.org/10.1016/j.aei.2024.102826) ·
 > [arXiv:2401.15266](https://arxiv.org/abs/2401.15266)
-
-## Citation
-
-`<fill in on release: the paper describing BCG, and the dataset DOI if one is minted>`
