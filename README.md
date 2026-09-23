@@ -87,7 +87,8 @@ downstream:
 ## Real images
 
 The real masonry images used to develop the generator and to evaluate the downstream models
-come from MCrack1300 and are not redistributed here.
+come from the [MCrack1300 masonry instance-segmentation dataset on Roboflow](https://universe.roboflow.com/acsalab/masonry-zqhaw)
+and are not redistributed here.
 
 > Ye, Z., Lovell, L., Faramarzi, A. and Ninic, J. (2024). SAM-based instance segmentation
 > models for the automation of structural damage detection. *Advanced Engineering Informatics*
