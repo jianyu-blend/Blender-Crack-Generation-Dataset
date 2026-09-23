@@ -9,10 +9,9 @@ brick and crack, produced by the Blender Crack Generation (BCG) framework.
 | Size | approximately 190 MiB |
 | Resolution | 128 x 128 to 640 x 640 |
 | Annotation | YOLO segmentation polygons |
-| Licence | `<fill in, for example CC BY 4.0>` |
+| Licence | CC BY 4.0 |
 | Generator code | [Blender Crack Generation Code](https://github.com/jianyu-blend/Blender-Crack-Generation-Code) |
 | Dataset repository | [Blender Crack Generation Dataset](https://github.com/jianyu-blend/Blender-Crack-Generation-Dataset) |
-| Archived release | `<dataset DOI — fill in, optional>` |
 
 ## Contents
 
@@ -37,17 +36,8 @@ polygons are the annotation. The converter that turns a label render into polygo
 
 ## Filenames
 
-`<base>` encodes the generation condition, so the condition of any image can be recovered from
-its name alone:
-
-| Part | Values |
-|---|---|
-| Crack-side motion | `stay`, `translation`, `settling` |
-| View range | `close`, `middle`, `far` |
-| Crack-width category | `lt3mm`, `3to5mm`, `5to10mm`, `10to30mm`, `gt30mm` |
-
-`<n>` is the camera index. Six views are rendered per wall: three primary cameras, each with a
-laterally shifted paired camera at a 0.10 m offset.
+Each image and its label use the same filename stem. The `.rf.<hash>` suffix was added during
+the YOLO export. Filenames identify pairs but should not be treated as generation metadata.
 
 Cracks narrower than 3 mm carry no Boolean geometry; they come from the procedural material
 textures. Images in every width group may therefore also contain texture-based cracks below
@@ -72,7 +62,7 @@ code and step-by-step instructions are available in the
 
 ## Using it
 
-The dataset trains any YOLO-format instance-segmentation model directly. For the acquisition
+The repository is a synthetic training pool in YOLO segmentation format. For the acquisition
 loop in the code repository, point the configuration at this directory:
 
 ```yaml
