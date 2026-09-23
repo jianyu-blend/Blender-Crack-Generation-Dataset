@@ -70,15 +70,6 @@ when additional samples or different scene distributions are required. The compl
 code and step-by-step instructions are available in the
 [Blender Crack Generation Code repository](https://github.com/jianyu-blend/Blender-Crack-Generation-Code).
 
-## Checking the data
-
-    python verify_dataset.py train
-
-It checks that every image has a label and the reverse, that the class ids and the polygon
-coordinates are in range, and prints the instance counts per class and the distribution over
-generation conditions. It needs only `Pillow`; add `--checksums` to compare against
-`checksums.sha256` if one is published with the release.
-
 ## Using it
 
 The dataset trains any YOLO-format instance-segmentation model directly. For the acquisition
