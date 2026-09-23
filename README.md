@@ -13,11 +13,25 @@ brick and crack, produced by the Blender Crack Generation (BCG) framework.
 | Generator code | [Blender Crack Generation Code](https://github.com/jianyu-blend/Blender-Crack-Generation-Code) |
 | Dataset repository | [Blender Crack Generation Dataset](https://github.com/jianyu-blend/Blender-Crack-Generation-Dataset) |
 
+## Examples
+
+<table>
+  <tr>
+    <td><img src="examples/generated_light_brick.jpg" alt="Light brick wall" width="140" height="140"></td>
+    <td><img src="examples/generated_grey_brick.jpg" alt="Grey brick wall" width="140" height="140"></td>
+    <td><img src="examples/generated_weathered_red_brick.jpg" alt="Weathered red brick wall" width="140" height="140"></td>
+    <td><img src="examples/generated_dark_oblique.jpg" alt="Oblique view of dark brick wall" width="140" height="140"></td>
+    <td><img src="examples/generated_red_oblique.jpg" alt="Oblique view of red brick wall" width="140" height="140"></td>
+    <td><img src="examples/generated_blue_oblique.jpg" alt="Oblique view of blue-grey brick wall" width="140" height="140"></td>
+  </tr>
+</table>
+
 ## Contents
 
 ```
 train/images/       <base>_<n>_P.jpg     RGB render
 train/labels/       <base>_<n>_P.txt     YOLO polygons, one instance per line
+examples/           six representative RGB previews
 data.yaml           class names, in the order below
 ```
 
